@@ -1,4 +1,4 @@
-// 
+//
 // Quick-n-dirty Example API Server for Skedulo intervew questions
 //
 
@@ -11,14 +11,14 @@ var people = [
 	{id: "1", name: "Bill Gates", org: "Microsoft"},
 	{id: "2", name: "Steve Jobs", org: "Apple"},
 	{id: "3", name: "Barack Obama", org: "Government"},
-	{id: "4", name: "Jonathan Doe", org: "ACME"}	
+	{id: "4", name: "Jonathan Doe", org: "ACME"}
 ];
 
 var interests = [
 	{personId: "1", name: "Skiing"},
 	{personId: "1", name: "Philanthropy"},
 	{personId: "2", name: "Fonts"},
-	{personId: "3", name: "Basketball"}	
+	{personId: "3", name: "Basketball"}
 ];
 
 var skills = [
@@ -28,7 +28,7 @@ var skills = [
 	{personId: "2", name: "Turtlenecks"},
 	{personId: "2", name: "Instagram"},
 	{personId: "3", name: "Basketball"},
-	{personId: "3", name: "Cycling"}	
+	{personId: "3", name: "Cycling"}
 ];
 
 var app = express();
@@ -60,7 +60,7 @@ app.get('/interests', function(req, res){
 
 	var personIds = query.personIds.split(",");
 
-	var results = interests.filter(function(interest){		
+	var results = interests.filter(function(interest){
 		return personIds.indexOf( interest.personId ) >= 0;
 	});
 
@@ -77,7 +77,7 @@ app.get('/skills', function(req, res){
 
 	var personIds = query.personIds.split(",");
 
-	var results = skills.filter(function(skill){		
+	var results = skills.filter(function(skill){
 		return personIds.indexOf( skill.personId ) >= 0;
 	});
 
@@ -85,4 +85,4 @@ app.get('/skills', function(req, res){
 });
 
 // Start the server!
-app.listen(3000);
+app.listen();
