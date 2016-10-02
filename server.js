@@ -4,6 +4,7 @@
 
 // Imports
 var express = require('express');
+var cors    = require('cors');
 var url     = require('url');
 
 // Some sample data
@@ -39,19 +40,19 @@ app.configure(function(){
 });
 
 // API to get a list of people
-app.get('/people', function(req, res){
+app.get('/people', cors(), function(req, res){
 	res.json( people )
 });
 
 // API to get the id of the richest person
-app.get('/richest', function(req,res){
+app.get('/richest', cors(), function(req,res){
 	res.json({
 		richestPerson: 1
 	});
 });
 
 // Get a list of interest for the given people ids. (/interests?personIds=1,2,3)
-app.get('/interests', function(req, res){
+app.get('/interests', cors(), function(req, res){
 
 	var query = url.parse( req.url, true ).query
 	if( ! query.personIds ){
@@ -68,7 +69,7 @@ app.get('/interests', function(req, res){
 });
 
 // Get a list of skills for the given people ids. (/interests?personIds=1,2,3)
-app.get('/skills', function(req, res){
+app.get('/skills', cors(), function(req, res){
 
 	var query = url.parse( req.url, true ).query
 	if( ! query.personIds ){
